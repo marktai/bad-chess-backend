@@ -6,10 +6,10 @@ WORKDIR /app
 
 EXPOSE 80
 
-ADD ./package*.json /app/
-RUN npm install
+ADD ./package*.json ./yarn.lock /app/
+RUN yarn install
 
 ADD . /app
-RUN npm run-script build
+RUN yarn build
 
 CMD yarn start
